@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            United Together 
+        </title>
+          <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+        <script type="text/javascript" src="script.js"></script>
+    </head>
+    <body>
+        <a-scene>
+            
+            <!--This is the fusing camera-->
+            <a-entity>
+                <a-camera>
+                    <a-cursor
+                        color="black"
+                        geometry="primitive: ring; radiusInner: .01; radiusOuter: .018"
+                    ></a-cursor>
+                </a-camera>
+            </a-entity>
+            <a-assets>
+                <video id="penguin-sledding" autoplay loop="true" src=""></video>
+            </a-assets>
+            
+            <!--This s the end of the fusing camera-->
+            <a-entity id="home" visible="true">
+                <a-sky color="#5e5e5e"></a-sky>
+                <a-video position="0 1.5 -5" 
+                    width="5" 
+                    height="3" 
+                    src="videoplayback (online-video-cutter.com).mp4"
+                    repeat="1"
+                    opacity="0"
+                >
+                <a-animation attribute="opacity"
+               dur="5000"
+               fill="forwards"
+               to="1"></a-animation>
+                </a-video>
+                <a-sphere
+                    position="0 0 15"
+                    radius="1.3"
+                    color="red"
+                    opacity="1"
+                    onclick="bridge()"
+                ></a-sphere>
+                <a-sphere
+                    position="0 0 -15"
+                    radius="1.3"
+                    color="red"
+                    opacity="1"
+                    onclick="rac()"
+                ></a-sphere>
+            </a-entity>
+            
+            
+        
+            
+            
+            <!--Succeed Act Scene-->
+            <a-entity id="succeed-act" visible="false">
+                <a-sky color="blue"></a-sky>
+                <a-video position="0 1.5 -5" 
+                    width="5" 
+                    height="3" 
+                    src="videoplayback (online-video-cutter.com).mp4"
+                    repeat="1"
+                    opacity="0"
+                >
+                <a-animation attribute="opacity"
+               dur="5000"
+               fill="forwards"
+               to="1"></a-animation>
+                <a-sphere
+                    position="0 0 15"
+                    radius="1.3"
+                    color="red"
+                    opacity="1"
+                    onclick="bridge()"
+                ></a-sphere>
+                <a-sphere
+                    position="0 0 -15"
+                    radius="1.3"
+                    color="red"
+                    opacity="1"
+                    onclick="rac()"
+                ></a-sphere>
+            </a-entity>
+            <!--End of Succeed Act Scene-->
+                
+            <!--The RAC Act-->
+            <a-entity id="rac-act" visible="false">
+                <a-sky src="green"></a-sky>
+                <a-sphere
+                    position="20 25 -35"
+                    radius="1.3"
+                    color="red"
+                    opacity="1"
+                    onclick="succeed()"
+                ></a-sphere>
+                <a-sphere
+                    position="6 30 35"
+                    radius="1.3"
+                    color="red"
+                    opacity="1"
+                    onclick="dream()"
+                ></a-sphere>
+            </a-entity>
+            <!--End of Bridge Act Scene-->
+            
+            
+            <!--The Dream Act-->
+            <a-entity id="dream-act" visible="false">
+                <a-sky src="green"></a-sky>
+                <a-sphere
+                    position="20 25 -35"
+                    radius="1.3"
+                    color="red"
+                    opacity="1"
+                    onclick="rac()"
+                ></a-sphere>
+                <a-sphere
+                    position="6 30 35"
+                    radius="1.3"
+                    color="red"
+                    opacity="1"
+                    onclick="bridge()"
+                ></a-sphere>
+            </a-entity>
+            <!--End of dream Act Scene-->
+            
+            <!--The Bridge Act-->
+            <a-entity id="bridge-act" visible="false">
+                <a-sky src="green"></a-sky>
+                <a-sphere
+                    position="20 25 -35"
+                    radius="1.3"
+                    color="red"
+                    opacity="1"
+                    onclick="succeed()"
+                ></a-sphere>
+                <a-sphere
+                    position="6 30 35"
+                    radius="1.3"
+                    color="red"
+                    opacity="1"
+                    onclick="dream()"
+                ></a-sphere>
+            </a-entity>
+            <!--End fo Bridge Act scene-->
+        </a-scene>
+    </body>
+</html>
