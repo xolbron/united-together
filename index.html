@@ -2,153 +2,419 @@
 <html>
     <head>
         <title>
-            United Together 
+            DACA in VR
         </title>
-          <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+        <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+        
         <script type="text/javascript" src="script.js"></script>
+        
     </head>
     <body>
         <a-scene>
-            
-            <!--This is the fusing camera-->
+            <!--Beginning of the Camera-->
             <a-entity>
-                <a-camera>
+                <a-camera position="0 1 0">
+                    <a-entity 
+                        geometry="primitive: plane"
+                        rotation="0 180 0" 
+                        material="color: blue"
+                        position="0 0 3" 
+                        volume="10" 
+                        sound="src: url(videoplayback (1) (online-video-cutter.com).1.mp4); autoplay: true"
+                    ></a-entity>
                     <a-cursor
-                        color="black"
-                        geometry="primitive: ring; radiusInner: .01; radiusOuter: .018"
+                        color="red"
+                        geometry="primitive: ring; 
+                            radiusInner: .01; 
+                            radiusOuter: .018"
                     ></a-cursor>
                 </a-camera>
             </a-entity>
+            <!--End of the Camera-->
+            
             <a-assets>
-                <video id="penguin-sledding" autoplay loop="true" src=""></video>
+                <video 
+                    muted
+                    id="360-protest-vid"
+                    autoplay
+                    loop="false"
+                    src="videoplayback (5) (online-video-cutter.com).mp4"
+                ></video>
             </a-assets>
             
-            <!--This s the end of the fusing camera-->
             <a-entity id="home" visible="true">
-                <a-sky color="#5e5e5e"></a-sky>
-                <a-video position="0 1.5 -5" 
-                    width="5" 
-                    height="3" 
-                    src="videoplayback (online-video-cutter.com).mp4"
-                    repeat="1"
-                    opacity="0"
-                >
-                <a-animation attribute="opacity"
-               dur="5000"
-               fill="forwards"
-               to="1"></a-animation>
-                </a-video>
-                <a-sphere
-                    position="0 0 15"
-                    radius="1.3"
-                    color="red"
-                    opacity="1"
-                    onclick="bridge()"
-                ></a-sphere>
-                <a-sphere
-                    position="0 0 -15"
-                    radius="1.3"
-                    color="red"
-                    opacity="1"
-                    onclick="rac()"
-                ></a-sphere>
-            </a-entity>
-            
-            
-        
-            
-            
-            <!--Succeed Act Scene-->
-            <a-entity id="succeed-act" visible="false">
-                <a-sky color="blue"></a-sky>
-                <a-video position="0 1.5 -5" 
-                    width="5" 
-                    height="3" 
-                    src="videoplayback (online-video-cutter.com).mp4"
-                    repeat="1"
-                    opacity="0"
-                >
-                <a-animation attribute="opacity"
-               dur="5000"
-               fill="forwards"
-               to="1"></a-animation>
-                <a-sphere
-                    position="0 0 15"
-                    radius="1.3"
-                    color="red"
-                    opacity="1"
-                    onclick="bridge()"
-                ></a-sphere>
-                <a-sphere
-                    position="0 0 -15"
-                    radius="1.3"
-                    color="red"
-                    opacity="1"
-                    onclick="rac()"
-                ></a-sphere>
-            </a-entity>
-            <!--End of Succeed Act Scene-->
+                <a-sky src="#360-protest-vid"><a-sky>
+                <a-sky color="blue"><a-sky>
+                <a-text 
+                    value="America Must Stand United..." 
+                    color="#00ffdd" 
+                    rotation="0 -90 0" 
+                    position="5 1 -5" 
+                    scale="3 3 3"
+                ></a-text>
+                <a-text 
+                    value="...with Dreamers." 
+                    rotation="0 -90 0" 
+                    position="05.55 -0.05 -4.4" 
+                    scale="5 5 5"
+                ></a-text>
                 
-            <!--The RAC Act-->
-            <a-entity id="rac-act" visible="false">
-                <a-sky src="green"></a-sky>
-                <a-sphere
-                    position="20 25 -35"
-                    radius="1.3"
-                    color="red"
+                <!--Learn More Button-->
+                <a-plane 
+                    position="6.5 -2 0"
+                    rotation="0 -92 0"
+                    width="5"
+                    height="1.3"
+                    src="learn-more-button.png"
                     opacity="1"
-                    onclick="succeed()"
-                ></a-sphere>
-                <a-sphere
-                    position="6 30 35"
-                    radius="1.3"
-                    color="red"
-                    opacity="1"
-                    onclick="dream()"
-                ></a-sphere>
+                    onclick="learnMore()"
+                ></a-plane>
+                <!--End of Learn Button-->
+                
+            
+                <!--The Border Wall Button-->
+                <!--The Ring-->
+                <a-curvedimage 
+                    height="6"
+                    radius="25"
+                    color="#dfe6e9"
+                    theta-length="360"
+                    rotation="0 100 0"
+                    position="0 10 0"
+                    scale="0.8 0.8 0.8"
+                    onclick="borderWallScene()"
+                    opacity="0"
+                    >
+                    <a-entity 
+                        text="value:The Wall; color: #2d3436; opacity: 1"
+                        position="2.3 3.4 -2"
+                        scale="7 7 4"
+                    ></a-entity>
+                    <a-animation 
+                        attribute="opacity"
+                        begin="23800"
+                        dur="20"
+                        fill="forwards"
+                        to="1"
+                        repeat="0"
+                    ></a-animation>
+                </a-curvedimage>
+                <!--The Words-->
+                <a-entity 
+                    text="value: The Wall; color: #2d3436; opacity: 1"
+                    position="2.3 3.4 -2"
+                    scale="7 7 4"
+                >
+                </a-entity>
+                <!--End of Border Wall Button-->
+                
+                
+                <!--The Government Shutdown Button-->
+                <!--The Ring-->
+                <a-curvedimage 
+                    height="6" 
+                    radius="25" 
+                    color="#dfe6e9"
+                    theta-length="360"
+                    rotation="0 100 0"
+                    position="0 3.5 0"
+                    scale="0.8 0.8 0.8"
+                    onclick="gsLink()"
+                    opacity="0"
+                    ><a-animation 
+                        attribute="opacity"
+                        begin="23800"
+                        dur="20"
+                        fill="forwards"
+                        to="1"
+                        repeat="0"
+                     ></a-animation>
+            </a-curvedimage>
+                <!--The Words-->
+                <a-entity 
+                    text="value: The Government Shutdown; color: #2d3436"
+                    position="1 2.7 -1.9"
+                    scale="5 5 4"
+                    ><a-animation 
+                        attribute="opacity"
+                        begin="23800"
+                        dur="20"
+                        fill="forwards"
+                        to="1"
+                        repeat="0"
+                     ></a-animation>
             </a-entity>
-            <!--End of Bridge Act Scene-->
+                <!--End of Government Shutdown Button-->
+                
+                
+                <!--The Stories Button-->
+                <!--The Ring-->
+                <a-curvedimage 
+                    height="7" 
+                    radius="25" 
+                    color="#dfe6e9"
+                    theta-length="360"
+                    rotation="0 100 0"
+                    position="0 -3 0"
+                    scale="0.8 0.8 0.8"
+                    onclick="storiesButton()"
+                    opacity="0"
+                    ><a-animation
+                        attribute="opacity"
+                        begin="23800"
+                        dur="20"
+                        fill="forwards"
+                        to="1"
+                        repeat="0"
+                     ></a-animation>
+                </a-curvedimage>
+                <!--The Words-->
+                <a-entity 
+                    text="value: The Stories; color: #2d3436"
+                    position="3 1.99 -2.1"
+                    rotation="0 0 0"
+                    scale="8 8 4"
+                ></a-entity>
+                <!--End of Stories Button-->
+                
+                
+                <!--The Activists Button-->
+                <!--The Ring-->
+                <a-curvedimage 
+                    height="7" 
+                    radius="25" 
+                    color="#dfe6e9"
+                    theta-length="360"
+                    rotation="0 100 0"
+                    position="0 -10.5 0"
+                    scale="0.8 0.8 0.8"
+                    onclick="ActivButton()"
+                    opacity="0"
+                    ><a-animation 
+                        attribute="opacity"
+                        begin="23800"
+                        dur="20"
+                        fill="forwards"
+                        to="1"
+                        repeat="0"
+                     ></a-animation>
+            </a-curvedimage>
+                <!--The Words-->
+                <a-entity 
+                    text="value: The Activists; color: #2d3436"
+                    position="2.9 1.17 -2.1"
+                    rotation="-10 0 0" scale="8 8 4"></a-entity>
+            
+            <!--End of Activists Button-->
+            
+            </a-entity>
+            
+            <!--The Border Wall Scene-->
+            <a-entity id="the-border-wall" visible="false">
+                <a-sky src="10 Shots Across the Border _ 360 VR _ The New York Times.mp4"></a-sky>
+                <a-entity 
+				    video-controls=
+						"src:10 Shots Across the Border _ 360 VR _ The New York Times.mp4; 
+						barColor:red; 
+						size:1;
+						distance:1"
+				></a-entity>
+                <a-text 
+                    value="Border Wall" 
+                    color="black" 
+                    rotation="0 0 0" 
+                    position="0 4 -5" 
+                    scale="3 3 3"
+                ></a-text>
+                <a-plane
+                    position="0 -1 10"
+                    rotation="0 180 0"
+                    height="2.8"
+                    width="4.5"
+                    src="Crop-home-button.jpg"
+                    opacity="1"
+                    onclick="home()"
+                ></a-plane>
+            </a-entity>
+            <!--End of Border Wall Scene-->
+            
+                
+            <!--The Government Shutdown Scene-->
+            <a-entity id="gsScene" visible="false">
+                <a-sky color="#7C274E"></a-sky>
+                <a-text 
+                    value="Government Shutdown" 
+                    color="white" 
+                    rotation="0 0 0" 
+                    position="-1.9 4 -5" 
+                    scale="3 3 3"
+                ></a-text>
+                <a-plane
+                    position="0 0 10"
+                    rotation="0 180 0"
+                    height="2.8"
+                    width="4.5"
+                    src="Crop-home-button.jpg"
+                    opacity="1"
+                    onclick="home()"
+                ></a-plane>
+            </a-entity>
+            <!--End of Government Shudown Scene-->
             
             
-            <!--The Dream Act-->
-            <a-entity id="dream-act" visible="false">
-                <a-sky src="green"></a-sky>
-                <a-sphere
-                    position="20 25 -35"
-                    radius="1.3"
-                    color="red"
+            <!--The Stories Scene-->
+            <a-entity id="storiesScene" visible="false">
+                <a-sky color="#409067"></a-sky>
+                <a-text value="Hear Their Stories" color="black" rotation="0 0 0" position="0 4 -5" scale="3 3 3"></a-text>
+                <a-plane
+                    position="0 2 10"
+                    rotation="0 180 0"
+                    height="2.8"
+                    width="4.5"
+                    src="Crop-home-button.jpg"
                     opacity="1"
-                    onclick="rac()"
-                ></a-sphere>
-                <a-sphere
-                    position="6 30 35"
-                    radius="1.3"
-                    color="red"
-                    opacity="1"
-                    onclick="bridge()"
-                ></a-sphere>
+                    onclick="home()"
+                ></a-plane>
             </a-entity>
-            <!--End of dream Act Scene-->
+            <!--End of Stories Scene-->
             
-            <!--The Bridge Act-->
-            <a-entity id="bridge-act" visible="false">
-                <a-sky src="green"></a-sky>
-                <a-sphere
-                    position="20 25 -35"
-                    radius="1.3"
-                    color="red"
+            
+            <!--The Activists Scene-->
+            <a-entity id="ActivScene" visible="false">
+                <a-sky color="lightgrey"></a-sky>
+                <a-text 
+                    value="Meet the Activists" 
+                    color="black" 
+                    rotation="0 0 0" 
+                    position="-2 6 -5" 
+                    scale="4 4 4"
+                ></a-text>
+                
+                <!--The Home Button-->
+                <a-plane
+                    position="0 1 10"
+                    rotation="0 180 0"
+                    height="2.8"
+                    width="4.5"
+                    src="Crop-home-button.jpg"
                     opacity="1"
-                    onclick="succeed()"
-                ></a-sphere>
-                <a-sphere
-                    position="6 30 35"
-                    radius="1.3"
-                    color="red"
-                    opacity="1"
-                    onclick="dream()"
-                ></a-sphere>
-            </a-entity>
-            <!--End fo Bridge Act scene-->
+                    onclick="home()"
+                ></a-plane>
+                
+                <!--Emerson Collective Logo-->
+                <a-plane
+                    position="-0.15 3.6 -2"
+                    rotation="0 0 0"
+                    scale="0.21 0.21 0.5"
+                    height="1.5"
+                    width="5.5"
+                    src="emerson.png"
+                    onclick=""
+                ></a-plane>
+                
+                <!--Apple Logo-->
+                <a-plane
+                    position="0.85 3.4 -2"
+                    rotation="0 0 0"
+                    height="0.9"
+                    scale="0.99 0.8 0.8"
+                    width="0.6"
+                    src="giant-apple-logo-bw.png"
+                ></a-plane>
+                
+                <!--Box Logo-->
+                <a-plane
+                    position="-0.41 3.1 -2"
+                    rotation="0 0 0"
+                    height="0.9"
+                    scale="1.0 0.4 0.8"
+                    width="0.6"
+                    src="box-logo.png"
+                ></a-plane>
+                
+                <!--Google Logo-->
+                <a-plane
+                    position="-0.2 2.65 -2"
+                    rotation="0 0 0"
+                    height="676"
+                    scale="0.0005 0.0005 0.0005"
+                    width="2000"
+                    src="google-logo.png"
+                ></a-plane>
+                
+                <!--Amazon Logo-->
+                <a-plane
+                    position="-0.2 2.65 -2"
+                    rotation="0 0 0"
+                    height="260"
+                    scale="0.0017 0.0017 0.0005"
+                    width="668"
+                    src="amazon-logo.png"
+                ></a-plane>
+               
+                <!--Janet Murguía -->
+                <a-plane
+                    position="-5 3.8 -5"
+                    rotation="0 35 0"
+                    height="4.6"
+                    scale=".8 .8 .8"
+                    width="5.3"
+                    src="Hola-444-DACA_DAPA_Janet-Murguia.jpg"
+                ></a-plane>
+                <a-text 
+                    value="Janet Murguia" 
+                    color="black" 
+                    rotation="0 32 0" 
+                    position="-9 1 -5" 
+                    scale="4 4 3"
+                ></a-text>
+                <a-entity id="jmurguia-plus" visible="true">
+                    <a-plane
+                        position="-5.5 -0.3 -5.7"
+                        rotation="0 35 0"
+                        height="1.3"
+                        scale="1 1 1"
+                        width="1.3"
+                        src="plus-button.jpeg"
+                        onclick="jmurguia()"
+                    ></a-plane>
+                </a-entity>
+                <a-entity id="jmurguiaBio" visible="false">
+                    <a-text value="We need to get out the vote, and challenge our people to run for office. That is the foundation of our future. Every election matters. Every vote matters. Every voice matters. We are a community of 57 million people strong. Our voice will be heard. I promise you, our voices will be heard." color="black" rotation="0 39 0" width="3.4" position="-5.5 -0.48 -5.7" align="center" scale="1.6 1.9 1"></a-text>
+                </a-entity>
+                
+                <!--Laurene Powell Jobs-->
+                <a-plane
+                    position="-9.5 4.15 -0.5"
+                    rotation="0 75 0"
+                    height="4.6"
+                    scale="1.2 1 1"
+                    width="5.9"
+                    src="laurene-powell-jobs.jpg"
+                ></a-plane>
+                <a-text 
+                    value="Laurene Powell Jobs" 
+                    color="black" 
+                    rotation="0 75 0" 
+                    position="-9.5 1.3 2.7" 
+                    scale="3 3 3"
+                ></a-text>
+                <a-entity id="ljobs-plus" visible="true">
+                    <a-plane
+                        position="-9.5 -0.5 -0.5"
+                        rotation="0 75 0"
+                        height="1.3"
+                        scale="1 1 1"
+                        width="1.3"
+                        src="plus-button.jpeg"
+                        onclick="ljobs()"
+                    ></a-plane>
+                </a-entity>
+                <a-entity id="ljobsBio" visible="false">
+                    <a-text value="There is no more sacred obligation than the protection of our children ��� all our children, all the children living in the United States, whatever their ethnic identity and origin. They are the young Americans who will be the next America. It is our fundamental responsibility to protect them and to ensure that they flourish." color="black" rotation="0 78 0" width="3.4" position="-9.5 -1.0 -0.6" align="center" scale="2.3 2.5 1"></a-text>
+                </a-entity>
+            </a-entity>        
+            <!--End of Activists scene-->
         </a-scene>
     </body>
 </html>
