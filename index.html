@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>
-            DACA in VR
-        </title>
+        <title>DACA in VR</title>
         <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
-        
         <script type="text/javascript" src="script.js"></script>
     </head>
     <body>
@@ -31,6 +28,7 @@
             </a-entity>
             <!--End of the Camera-->
             
+            
             <a-assets>
                 <video 
                     muted
@@ -41,7 +39,8 @@
                 ></video>
             </a-assets>
             
-            <a-entity id="home" visible="false">
+            
+            <a-entity id="home" visible="true">
                 <a-sky src="#360-protest-vid"></a-sky>
                 <!--<a-sky color="blue"></a-sky>-->
                 <a-text 
@@ -81,8 +80,8 @@
                     rotation="0 100 0"
                     position="0 10 0"
                     scale="0.8 0.8 0.8"
-                    onclick="borderWallScene()"
-                    opacity="0"
+                    onclick="birthScene()"
+                    opacity="0.5"
                     >
                     <a-animation 
                         attribute="opacity"
@@ -95,7 +94,7 @@
                 </a-curvedimage>
                 <!--The Words-->
                 <a-entity 
-                    text="value: The Wall; color: #2d3436; opacity: 1"
+                    text="value: The Birth of DACA; color: #2d3436; opacity: 1"
                     position="2.3 3.4 -2"
                     scale="7 7 4"
                 >
@@ -169,7 +168,7 @@
                     rotation="0 0 0"
                     scale="8 8 4"
                 ></a-entity>
-                <!--End of Stories Button-->
+                <!--End of Birth of DACA Button-->
                 
                 <!--The Activists Button-->
                 <!--The Ring-->
@@ -202,6 +201,7 @@
             
             </a-entity>
             
+            
             <!--The Border Wall Scene-->
             <a-entity id="the-border-wall" visible="false">
                 <a-sky src="10 Shots Across the Border _ 360 VR _ The New York Times.mp4"></a-sky>
@@ -224,7 +224,7 @@
             </a-entity>
             <!--End of Border Wall Scene-->
             
-                
+            
             <!--The Government Shutdown Scene-->
             <a-entity id="gsScene" visible="false"> 
                 <a-sky color="#7C274E"></a-sky>
@@ -329,10 +329,45 @@
             <!--End of Government Shudown Scene-->
             
             
-            <!--The Stories Scene-->
-            <a-entity id="birthScene" visible="true"> 
-                <a-sky color="#409067"></a-sky>
-                <a-text value="The Birth of DACA" color="black" rotation="0 0 0" position="0 4 -5" scale="3 3 3"></a-text>
+            <!--The Birth of DACA Scene-->
+            <a-entity id="birthScene" visible="false">   
+                <a-sky src="529848-white-house-vr"></a-sky>
+                <a-text 
+                    value="The Birth of DACA" 
+                    color="black" 
+                    rotation="0 0 0" 
+                    position="-2.8 4.5 -5" 
+                    scale="3.5 3.5 3.5"
+                ></a-text>
+                
+          <a-entity position="0 0 -25">
+                <a-plane
+                    position="0 0 -10"
+                    rotation="0 180 0"
+                    scale="1.8 1.7"
+                    height="2.8"
+                    width="4.5"
+                    src="obama-cube-preview.jpg"
+                ></a-plane>
+                <a-plane
+                    position="0 0 -10"
+                    rotation="0 180 0"
+                    scale="1.8 1.7"
+                    height="2.8"
+                    width="4.5"
+                    src="obama-cube-preview.js"
+                ></a-plane>
+                <a-animation
+                    attribute="rotation" 
+                    from="0 0 0"
+                    to="0 360 0"
+                    easing="linear"
+                    dur="16056.83" 
+                    repeat="indefinite"
+                ></a-animation>
+            </a-entity>
+            
+                <!--Home Button-->
                 <a-plane
                     position="0 2 10"
                     rotation="0 180 0"
@@ -342,13 +377,12 @@
                     opacity="1"
                     onclick="home()"
                 ></a-plane>
-                <a-plane position="0 0 -5"></a-plane>
             </a-entity>
-            <!--End of Stories Scene-->
+            <!--End of Birth of DACA Scene-->
             
             
             <!--The Activists Scene-->
-            <a-entity id="ActivScene" visible="false"> 
+            <a-entity id="ActivScene" visible="false">  
                 <a-sky src="529848-white-house-vr"></a-sky>
                 <a-text 
                     value="Meet the Activists" 
@@ -368,58 +402,71 @@
                     opacity="1"
                     onclick="home()"
                 ></a-plane>
+                <a-box position="0 1 -5" height="0.2" width="0.2" depth="0.2" scale="2 2 2">
+                    <!--Emerson Collective Logo-->
+                    <a-plane
+                        position="-0.15 0.2 0.5"
+                        rotation="0 0 0"
+                        scale="0.21 0.21 0.5"
+                        height="1.5"
+                        width="5.5"
+                        src="emerson.png"
+                    ></a-plane>
+                    <!--Apple Logo-->
+                    <a-plane
+                        position="0 0 -0.5"
+                        rotation="0 180 0"
+                        height="0.9"
+                        scale="0.99 0.8 0.8"
+                        width="0.6"
+                        src="giant-apple-logo-bw.png"
+                    ></a-plane>
+                    
+                    <!--Box Logo-->
+                    <a-plane
+                        position="-0.41 0 0"
+                        rotation="0 -90 0"
+                        height="0.9"
+                        scale="1.0 0.4 0.8"
+                        width="0.6"
+                        src="box-logo.png"
+                    ></a-plane>
+                    
+                    <a-animation attribute="rotation" from="0 0 0" to="0 360 0" easing="linear" dur="13056.83" repeat="indefinite"></a-animation>
+
+                </a-box>
+
                 
-                <!--Emerson Collective Logo-->
-                <a-plane
-                    position="-0.15 3.6 -2"
-                    rotation="0 0 0"
-                    scale="0.21 0.21 0.5"
-                    height="1.5"
-                    width="5.5"
-                    src="emerson.png"
-                    onclick=""
-                ></a-plane>
+                    <!--Box Logo-->
+                    <a-plane
+                        position="-0.41 3.1 -2"
+                        rotation="0 0 0"
+                        height="0.9"
+                        scale="1.0 0.4 0.8"
+                        width="0.6"
+                        src="box-logo.png"
+                    ></a-plane>
                 
-                <!--Apple Logo-->
-                <a-plane
-                    position="0.85 3.4 -2"
-                    rotation="0 0 0"
-                    height="0.9"
-                    scale="0.99 0.8 0.8"
-                    width="0.6"
-                    src="giant-apple-logo-bw.png"
-                ></a-plane>
+                    <!--Google Logo-->
+                    <a-plane
+                        position="-0.2 2.65 -2"
+                        rotation="0 0 0"
+                        height="676"
+                        scale="0.0005 0.0005 0.0005"
+                        width="2000"
+                        src="google-logo.png"
+                    ></a-plane>
                 
-                <!--Box Logo-->
-                <a-plane
-                    position="-0.41 3.1 -2"
-                    rotation="0 0 0"
-                    height="0.9"
-                    scale="1.0 0.4 0.8"
-                    width="0.6"
-                    src="box-logo.png"
-                ></a-plane>
-                
-                <!--Google Logo-->
-                <a-plane
-                    position="-0.2 2.65 -2"
-                    rotation="0 0 0"
-                    height="676"
-                    scale="0.0005 0.0005 0.0005"
-                    width="2000"
-                    src="google-logo.png"
-                ></a-plane>
-                
-                <!--Amazon Logo-->
-                <a-plane
-                    position="-0.2 2.65 -2"
-                    rotation="0 0 0"
-                    height="260"
-                    scale="0.0017 0.0017 0.0005"
-                    width="668"
-                    src="amazon-logo.png"
-                ></a-plane>
-               
+                    <!--Amazon Logo-->
+                    <a-plane
+                        position="0.15 4.1 -2"
+                        rotation="0 0 0"
+                        height="260"
+                        scale="0.0017 0.0017 0.0005"
+                        width="668"
+                        src="amazon-logo.png"
+                    ></a-plane>
+                    
                 <!--Janet Murguía -->
                 <a-plane
                     position="-5 3.8 -5"
