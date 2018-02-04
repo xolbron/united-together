@@ -7,7 +7,6 @@
         <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
         
         <script type="text/javascript" src="script.js"></script>
-        
     </head>
     <body>
         <a-scene>
@@ -42,9 +41,9 @@
                 ></video>
             </a-assets>
             
-            <a-entity id="home" visible="true">
-                <a-sky src="#360-protest-vid"><a-sky>
-                <a-sky color="blue"><a-sky>
+            <a-entity id="home" visible="false">
+                <a-sky src="#360-protest-vid"></a-sky>
+                <!--<a-sky color="blue"></a-sky>-->
                 <a-text 
                     value="America Must Stand United..." 
                     color="#00ffdd" 
@@ -72,7 +71,7 @@
                 <!--End of Learn Button-->
                 
             
-                <!--The Border Wall Button-->
+                <!--The Wall Button-->
                 <!--The Ring-->
                 <a-curvedimage 
                     height="6"
@@ -85,11 +84,6 @@
                     onclick="borderWallScene()"
                     opacity="0"
                     >
-                    <a-entity 
-                        text="value:The Wall; color: #2d3436; opacity: 1"
-                        position="2.3 3.4 -2"
-                        scale="7 7 4"
-                    ></a-entity>
                     <a-animation 
                         attribute="opacity"
                         begin="23800"
@@ -109,7 +103,7 @@
                 <!--End of Border Wall Button-->
                 
                 
-                <!--The Government Shutdown Button-->
+                <!--The Shutdown Button-->
                 <!--The Ring-->
                 <a-curvedimage 
                     height="6" 
@@ -132,7 +126,7 @@
             </a-curvedimage>
                 <!--The Words-->
                 <a-entity 
-                    text="value: The Government Shutdown; color: #2d3436"
+                    text="value: The Shutdown; color: #2d3436"
                     position="1 2.7 -1.9"
                     scale="5 5 4"
                     ><a-animation 
@@ -147,7 +141,7 @@
                 <!--End of Government Shutdown Button-->
                 
                 
-                <!--The Stories Button-->
+                <!--The Birth of DACA Button-->
                 <!--The Ring-->
                 <a-curvedimage 
                     height="7" 
@@ -157,7 +151,7 @@
                     rotation="0 100 0"
                     position="0 -3 0"
                     scale="0.8 0.8 0.8"
-                    onclick="storiesButton()"
+                    onclick="birthButton()"
                     opacity="0"
                     ><a-animation
                         attribute="opacity"
@@ -170,13 +164,12 @@
                 </a-curvedimage>
                 <!--The Words-->
                 <a-entity 
-                    text="value: The Stories; color: #2d3436"
+                    text="value: Hear their Stories; color: #2d3436"
                     position="3 1.99 -2.1"
                     rotation="0 0 0"
                     scale="8 8 4"
                 ></a-entity>
                 <!--End of Stories Button-->
-                
                 
                 <!--The Activists Button-->
                 <!--The Ring-->
@@ -212,15 +205,8 @@
             <!--The Border Wall Scene-->
             <a-entity id="the-border-wall" visible="false">
                 <a-sky src="10 Shots Across the Border _ 360 VR _ The New York Times.mp4"></a-sky>
-                <a-entity 
-				    video-controls=
-						"src:10 Shots Across the Border _ 360 VR _ The New York Times.mp4; 
-						barColor:red; 
-						size:1;
-						distance:1"
-				></a-entity>
                 <a-text 
-                    value="Border Wall" 
+                    value="The Wall" 
                     color="black" 
                     rotation="0 0 0" 
                     position="0 4 -5" 
@@ -240,15 +226,91 @@
             
                 
             <!--The Government Shutdown Scene-->
-            <a-entity id="gsScene" visible="false">
+            <a-entity id="gsScene" visible="false"> 
                 <a-sky color="#7C274E"></a-sky>
                 <a-text 
-                    value="Government Shutdown" 
+                    value="The Government Shutdown" 
                     color="white" 
                     rotation="0 0 0" 
                     position="-1.9 4 -5" 
                     scale="3 3 3"
                 ></a-text>
+                
+                <a-text 
+                    value="What did Trump Announce?" 
+                    color="black" 
+                    rotation="0 0 0" 
+                    position="-1.9 3 -5" 
+                    scale="1.3 1.5 3"
+                ></a-text>
+                <a-text 
+                    value="During last year’s divisive election, Trump promised to rip up Daca immediately and make the deportation of the US’s estimated 11 million undocumented persons a top priority, along with his threats to ban all Muslims from entering the US and to build a wall along the border with Mexico. He has not yet successfully executed any of these threats." 
+                    color="black" 
+                    rotation="0 -2 0" 
+                    position="-1.9 1.6 -5" 
+                    scale="1 1 3"
+                ></a-text>
+                
+                <a-text 
+                    value="What is a government shutdown?" 
+                    color="black" 
+                    rotation="-20 -2 0" 
+                    position="-1.9 -0.3 -5" 
+                    scale="1.3 1.5 3"
+                ></a-text>
+                <a-text 
+                    value="Exactly what it sounds like. Much of the federal government gets its funding from annual budget appropriations decided by Congress. The legislation that provides that funding must be passed by a certain deadline — Friday at midnight. Since Congress didn’t find a consensus, the hundreds of thousands of people who work for the federal government can’t get a paycheck. Legally, many of those federal workers are obligated to stop showing up to work — known as an unpaid furlough." 
+                    color="black" 
+                    rotation="-20 -2 0" 
+                    position="-1.9 -1.6 -4" 
+                    scale="1 1 3"
+                ></a-text>
+                
+                <a-text 
+                    value="What will happen to the Dreamers?" 
+                    color="black" 
+                    rotation="0 40 0" 
+                    position="-6.5 4.2 -2" 
+                    scale="1.5 2 3"
+                ></a-text>
+                <a-text 
+                    value="Under the Trump administration, new applications under Daca will no longer be accepted. For those currently in the program, their legal status and other Daca-related permits (such as to work and attend college) will begin expiring in March 2018 – unless Congress passes legislation allowing a new channel for temporary or permanent legal immigration status – and Dreamers will all lose their status by March 2020.
+
+                    Technically, as their statuses lapse they could be deported and sent back to countries many have no familiarity with. It is still unclear whether this would happen. Fear had been rising in the run-up to last week’s announcement. Those with work permits expiring between 5 September 2017 and 5 March 2018 will be allowed to apply for renewal by 5 October." 
+                    color="black" 
+                    rotation="0 40 0" 
+                    position="-6.5 1.6 -2" 
+                    scale="1 1 3"
+                ></a-text>
+                
+                <!--The Floor-->
+                <a-box 
+                    src="concrete-4.jpg" 
+                    rotation="0 -2.5 0" 
+                    position="0 0.4 0.35" 
+                    width="1.6"
+                    height="1.8" 
+                    depth="1.2"
+                ></a-box>
+                
+                <a-text 
+                    value="What has trump said about Dreamers?" 
+                    color="black" 
+                    rotation="0 -70 0" 
+                    position="4 4.2 -3" 
+                    scale="1.5 2 3"
+                ></a-text>
+                <a-text 
+                    value="On the campaign trail in 2016, Trump said his administration would “immediately terminate President Obama’s two illegal executive amnesties”, by which he meant Daca and another order protecting some parents of children in the US, where the children had legal status but the parents were illegal immigrants. Trump did scrap the second program, which was blocked in the courts anyway.
+
+                    In a speech in August 2016, in North Carolina, when talking about poverty and the elusiveness of the so-called American dream for many US citizens, Trump indirectly criticized Daca and its beneficieries, saying: “We want our children to be Dreamers, too.” After becoming president, Trump said he wanted to “work something out” for Dreamers. “We don’t want to hurt those kids,” he said. “We love the Dreamers.” On the day the end of Daca was announced, he said: “I have advised the department of homeland security that Daca recipients are not enforcement priorities unless they are criminals, are involved in criminal activity, or are members of a gang." 
+                    color="black" 
+                    rotation="0 -70 0" 
+                    position="4 1 -3" 
+                    scale="1 1 3"
+                ></a-text>
+                
+                <!--Home Button-->
                 <a-plane
                     position="0 0 10"
                     rotation="0 180 0"
@@ -257,15 +319,20 @@
                     src="Crop-home-button.jpg"
                     opacity="1"
                     onclick="home()"
+                    opacity="0"
                 ></a-plane>
+                
+    
+                
+                
             </a-entity>
             <!--End of Government Shudown Scene-->
             
             
             <!--The Stories Scene-->
-            <a-entity id="storiesScene" visible="false">
+            <a-entity id="birthScene" visible="true"> 
                 <a-sky color="#409067"></a-sky>
-                <a-text value="Hear Their Stories" color="black" rotation="0 0 0" position="0 4 -5" scale="3 3 3"></a-text>
+                <a-text value="The Birth of DACA" color="black" rotation="0 0 0" position="0 4 -5" scale="3 3 3"></a-text>
                 <a-plane
                     position="0 2 10"
                     rotation="0 180 0"
@@ -275,13 +342,14 @@
                     opacity="1"
                     onclick="home()"
                 ></a-plane>
+                <a-plane position="0 0 -5"></a-plane>
             </a-entity>
             <!--End of Stories Scene-->
             
             
             <!--The Activists Scene-->
-            <a-entity id="ActivScene" visible="false">
-                <a-sky color="lightgrey"></a-sky>
+            <a-entity id="ActivScene" visible="false"> 
+                <a-sky src="529848-white-house-vr"></a-sky>
                 <a-text 
                     value="Meet the Activists" 
                     color="black" 
