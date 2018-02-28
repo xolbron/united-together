@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>DACA in VR</title>
+        <title>D.A.C.A.</title>
         <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
         <script type="text/javascript" src="script.js"></script>
     </head>
@@ -9,7 +9,7 @@
         <a-scene>
             <!--Beginning of the Camera-->
             <a-entity>
-                <a-camera position="0 1 0">
+                <a-camera position="0 1 0" rotation="-10 200 0" cursor="fuse: true;" >
                     <a-entity 
                         geometry="primitive: plane"
                         rotation="0 180 0" 
@@ -18,18 +18,23 @@
                         volume="10" 
                         sound="src: url(videoplayback (1) (online-video-cutter.com).1.mp4); autoplay: true"
                     ></a-entity>
-                    <a-cursor
-                        color="red"
+                    <a-cursor 
+                        material="color: red; shader: flat"
                         geometry="primitive: ring; 
                             radiusInner: .01; 
-                            radiusOuter: .018"
-                    ></a-cursor>
+                            radiusOuter: .018">
+                    </a-cursor>
                 </a-camera>
             </a-entity>
             <!--End of the Camera-->
             
-            
             <a-assets>
+                <video
+                    muted="true"
+                    id="border"
+                    src="10 Shots Across the Border _ 360 VR _ The New York Times.mp4"
+                    autoplay="false"
+                ></video>
                 <video 
                     muted
                     id="360-protest-vid"
@@ -39,38 +44,46 @@
                 ></video>
             </a-assets>
             
-            
+            <!--The Home Scene-->
             <a-entity id="home" visible="true">
                 <a-sky src="#360-protest-vid"></a-sky>
                 <!--<a-sky color="blue"></a-sky>-->
                 <a-text 
                     value="America Must Stand United..." 
                     color="#00ffdd" 
-                    rotation="0 -90 0" 
-                    position="5 1 -5" 
-                    scale="3 3 3"
-                ></a-text>
+                    rotation="0 180 0" 
+                    position="5 1 21.505" 
+                    scale="10 10 10"
+                    opacity="1"
+                >
+                <a-animation 
+                    attribute="opacity"
+                    begin="23800"
+                    dur="20"
+                    fill="forwards"
+                    to="0"
+                    repeat="0"
+                ></a-animation>
+                </a-text>
                 <a-text 
                     value="...with Dreamers." 
-                    rotation="0 -90 0" 
-                    position="05.55 -0.05 -4.4" 
-                    scale="5 5 5"
-                ></a-text>
-                
-                <!--Learn More Button-->
-                <a-plane 
-                    position="6.5 -2 0"
-                    rotation="0 -92 0"
-                    width="5"
-                    height="1.3"
-                    src="learn-more-button.png"
+                    rotation="0 180 0" 
+                    position="2.3 -2.05 21.505" 
+                    scale="15 15 13"
                     opacity="1"
-                    onclick="learnMore()"
-                ></a-plane>
-                <!--End of Learn Button-->
+                >
+                <a-animation 
+                    attribute="opacity"
+                    begin="23800"
+                    dur="20"
+                    fill="forwards"
+                    to="0"
+                    repeat="0"
+                ></a-animation>
+                </a-text>
                 
             
-                <!--The Wall Button-->
+                <!--The The Birth of DACA Button-->
                 <!--The Ring-->
                 <a-curvedimage 
                     height="6"
@@ -81,28 +94,45 @@
                     position="0 10 0"
                     scale="0.8 0.8 0.8"
                     onclick="birthScene()"
-                    opacity="0.5"
+                    opacity="0"
                     >
                     <a-animation 
                         attribute="opacity"
                         begin="23800"
                         dur="20"
                         fill="forwards"
-                        to="1"
+                        to="0.4"
                         repeat="0"
                     ></a-animation>
                 </a-curvedimage>
+                <a-plane
+                    src="Turn Around.jpg" 
+                    rotation="0 175 0" 
+                    width="3"
+                    position="0 2.5 8" 
+                    scale="2 2 2"
+                    height=".9"
+                    opacity="0"
+                >
+                <a-animation 
+                    attribute="opacity"
+                    begin="23800"
+                    dur="20"
+                    fill="forwards"
+                    to="1"
+                    repeat="0"
+                ></a-animation>
+                </a-plane>
                 <!--The Words-->
                 <a-entity 
-                    text="value: The Birth of DACA; color: #2d3436; opacity: 1"
+                    text="value: The Birth of DACA;"
                     position="2.3 3.4 -2"
                     scale="7 7 4"
-                >
-                </a-entity>
-                <!--End of Border Wall Button-->
+                ></a-entity>
+                <!--End of The Birth of DACA Button-->
                 
                 
-                <!--The Shutdown Button-->
+                <!--The Voice of Dreamers Button-->
                 <!--The Ring-->
                 <a-curvedimage 
                     height="6" 
@@ -112,22 +142,22 @@
                     rotation="0 100 0"
                     position="0 3.5 0"
                     scale="0.8 0.8 0.8"
-                    onclick="gsLink()"
+                    onclick="voiceButton()"
                     opacity="0"
                     ><a-animation 
                         attribute="opacity"
                         begin="23800"
                         dur="20"
                         fill="forwards"
-                        to="1"
+                        to="0.4"
                         repeat="0"
                      ></a-animation>
             </a-curvedimage>
                 <!--The Words-->
                 <a-entity 
-                    text="value: The Shutdown; color: #2d3436"
-                    position="1 2.7 -1.9"
-                    scale="5 5 4"
+                    text="value: The Voice of Dreamers"
+                    position="2 2.7 -1.9"
+                    scale="7 7 4"
                     ><a-animation 
                         attribute="opacity"
                         begin="23800"
@@ -140,37 +170,38 @@
                 <!--End of Government Shutdown Button-->
                 
                 
-                <!--The Birth of DACA Button-->
+                <!--The Heroes of DACA Button-->
                 <!--The Ring-->
                 <a-curvedimage 
                     height="7" 
                     radius="25" 
                     color="#dfe6e9"
+                    color="red"
                     theta-length="360"
                     rotation="0 100 0"
                     position="0 -3 0"
                     scale="0.8 0.8 0.8"
-                    onclick="birthButton()"
+                    onclick="heroesButton()"
                     opacity="0"
                     ><a-animation
                         attribute="opacity"
                         begin="23800"
                         dur="20"
                         fill="forwards"
-                        to="1"
+                        to="0.4"
                         repeat="0"
                      ></a-animation>
                 </a-curvedimage>
                 <!--The Words-->
                 <a-entity 
-                    text="value: Hear their Stories; color: #2d3436"
-                    position="3 1.99 -2.1"
+                    text="value: The Heroes of DACA"
+                    position="2.2 1.99 -2.1"
                     rotation="0 0 0"
-                    scale="8 8 4"
+                    scale="7 7 4"
                 ></a-entity>
                 <!--End of Birth of DACA Button-->
                 
-                <!--The Activists Button-->
+                <!--The Wall Button-->
                 <!--The Ring-->
                 <a-curvedimage 
                     height="7" 
@@ -180,153 +211,25 @@
                     rotation="0 100 0"
                     position="0 -10.5 0"
                     scale="0.8 0.8 0.8"
-                    onclick="ActivButton()"
+                    onclick="borderWallButton()"
                     opacity="0"
                     ><a-animation 
                         attribute="opacity"
                         begin="23800"
                         dur="20"
                         fill="forwards"
-                        to="1"
+                        to="0.4"
                         repeat="0"
                      ></a-animation>
             </a-curvedimage>
                 <!--The Words-->
                 <a-entity 
-                    text="value: The Activists; color: #2d3436"
-                    position="2.9 1.17 -2.1"
-                    rotation="-10 0 0" scale="8 8 4"></a-entity>
-            
-            <!--End of Activists Button-->
-            
+                    text="value: The Wall;"
+                    position="3.7 1.17 -2.1"
+                    rotation="-10 0 0" scale="9 9 4"></a-entity>
+                <!--End of the Wall Button-->
             </a-entity>
-            
-            
-            <!--The Border Wall Scene-->
-            <a-entity id="the-border-wall" visible="false">
-                <a-sky src="10 Shots Across the Border _ 360 VR _ The New York Times.mp4"></a-sky>
-                <a-text 
-                    value="The Wall" 
-                    color="black" 
-                    rotation="0 0 0" 
-                    position="0 4 -5" 
-                    scale="3 3 3"
-                ></a-text>
-                <a-plane
-                    position="0 -1 10"
-                    rotation="0 180 0"
-                    height="2.8"
-                    width="4.5"
-                    src="Crop-home-button.jpg"
-                    opacity="1"
-                    onclick="home()"
-                ></a-plane>
-            </a-entity>
-            <!--End of Border Wall Scene-->
-            
-            
-            <!--The Government Shutdown Scene-->
-            <a-entity id="gsScene" visible="false"> 
-                <a-sky color="#7C274E"></a-sky>
-                <a-text 
-                    value="The Government Shutdown" 
-                    color="white" 
-                    rotation="0 0 0" 
-                    position="-1.9 4 -5" 
-                    scale="3 3 3"
-                ></a-text>
-                
-                <a-text 
-                    value="What did Trump Announce?" 
-                    color="black" 
-                    rotation="0 0 0" 
-                    position="-1.9 3 -5" 
-                    scale="1.3 1.5 3"
-                ></a-text>
-                <a-text 
-                    value="During last year’s divisive election, Trump promised to rip up Daca immediately and make the deportation of the US’s estimated 11 million undocumented persons a top priority, along with his threats to ban all Muslims from entering the US and to build a wall along the border with Mexico. He has not yet successfully executed any of these threats." 
-                    color="black" 
-                    rotation="0 -2 0" 
-                    position="-1.9 1.6 -5" 
-                    scale="1 1 3"
-                ></a-text>
-                
-                <a-text 
-                    value="What is a government shutdown?" 
-                    color="black" 
-                    rotation="-20 -2 0" 
-                    position="-1.9 -0.3 -5" 
-                    scale="1.3 1.5 3"
-                ></a-text>
-                <a-text 
-                    value="Exactly what it sounds like. Much of the federal government gets its funding from annual budget appropriations decided by Congress. The legislation that provides that funding must be passed by a certain deadline — Friday at midnight. Since Congress didn’t find a consensus, the hundreds of thousands of people who work for the federal government can’t get a paycheck. Legally, many of those federal workers are obligated to stop showing up to work — known as an unpaid furlough." 
-                    color="black" 
-                    rotation="-20 -2 0" 
-                    position="-1.9 -1.6 -4" 
-                    scale="1 1 3"
-                ></a-text>
-                
-                <a-text 
-                    value="What will happen to the Dreamers?" 
-                    color="black" 
-                    rotation="0 40 0" 
-                    position="-6.5 4.2 -2" 
-                    scale="1.5 2 3"
-                ></a-text>
-                <a-text 
-                    value="Under the Trump administration, new applications under Daca will no longer be accepted. For those currently in the program, their legal status and other Daca-related permits (such as to work and attend college) will begin expiring in March 2018 – unless Congress passes legislation allowing a new channel for temporary or permanent legal immigration status – and Dreamers will all lose their status by March 2020.
-
-                    Technically, as their statuses lapse they could be deported and sent back to countries many have no familiarity with. It is still unclear whether this would happen. Fear had been rising in the run-up to last week’s announcement. Those with work permits expiring between 5 September 2017 and 5 March 2018 will be allowed to apply for renewal by 5 October." 
-                    color="black" 
-                    rotation="0 40 0" 
-                    position="-6.5 1.6 -2" 
-                    scale="1 1 3"
-                ></a-text>
-                
-                <!--The Floor-->
-                <a-box 
-                    src="concrete-4.jpg" 
-                    rotation="0 -2.5 0" 
-                    position="0 0.4 0.35" 
-                    width="1.6"
-                    height="1.8" 
-                    depth="1.2"
-                ></a-box>
-                
-                <a-text 
-                    value="What has trump said about Dreamers?" 
-                    color="black" 
-                    rotation="0 -70 0" 
-                    position="4 4.2 -3" 
-                    scale="1.5 2 3"
-                ></a-text>
-                <a-text 
-                    value="On the campaign trail in 2016, Trump said his administration would “immediately terminate President Obama’s two illegal executive amnesties”, by which he meant Daca and another order protecting some parents of children in the US, where the children had legal status but the parents were illegal immigrants. Trump did scrap the second program, which was blocked in the courts anyway.
-
-                    In a speech in August 2016, in North Carolina, when talking about poverty and the elusiveness of the so-called American dream for many US citizens, Trump indirectly criticized Daca and its beneficieries, saying: “We want our children to be Dreamers, too.” After becoming president, Trump said he wanted to “work something out” for Dreamers. “We don’t want to hurt those kids,” he said. “We love the Dreamers.” On the day the end of Daca was announced, he said: “I have advised the department of homeland security that Daca recipients are not enforcement priorities unless they are criminals, are involved in criminal activity, or are members of a gang." 
-                    color="black" 
-                    rotation="0 -70 0" 
-                    position="4 1 -3" 
-                    scale="1 1 3"
-                ></a-text>
-                
-                <!--Home Button-->
-                <a-plane
-                    position="0 0 10"
-                    rotation="0 180 0"
-                    height="2.8"
-                    width="4.5"
-                    src="Crop-home-button.jpg"
-                    opacity="1"
-                    onclick="home()"
-                    opacity="0"
-                ></a-plane>
-                
-    
-                
-                
-            </a-entity>
-            <!--End of Government Shudown Scene-->
+            <!--End of Home Scene-->
             
             
             <!--The Birth of DACA Scene-->
@@ -340,7 +243,7 @@
                     scale="3.5 3.5 3.5"
                 ></a-text>
                 
-          <a-entity position="0 0 -25">
+            <a-entity position="0 0 -25">
                 <a-plane
                     position="0 0 -10"
                     rotation="0 180 0"
@@ -381,37 +284,142 @@
             <!--End of Birth of DACA Scene-->
             
             
-            <!--The Activists Scene-->
-            <a-entity id="ActivScene" visible="false">  
-                <a-sky src="529848-white-house-vr"></a-sky>
+            <!--The Voice of Dreamers Scene-->
+            <a-entity id="voiceScene" visible="false"> 
+                <a-sky color="#7C274E"></a-sky>
                 <a-text 
-                    value="Meet the Activists" 
-                    color="black" 
+                    value="The Voice of Dreamers" 
+                    color="white" 
                     rotation="0 0 0" 
-                    position="-2 6 -5" 
+                    position="0 5 -5" 
+                    align="center"
                     scale="4 4 4"
                 ></a-text>
+                <a-text 
+                    value="WITHOUT DACA, THESE DREAMERS ARE AT IMMEDIATE RISK"
+                    align="center"
+                    color="white" 
+                    rotation="0 0 0" 
+                    position="0 4.1 -5"
+                    scale="1.6 1.5 1.5"
+                ></a-text>
                 
-                <!--The Home Button-->
-                <a-plane
-                    position="0 1 10"
+                <a-plane 
+                    src="Screen Shot 2018-02-28 at 1.42.02 AM.png" 
+                    position="0 1.5 -3" 
+                    height="3" 
+                    width="2"
+                ></a-plane>
+                <!--Maria Photo-->
+                <a-plane 
+                    src="Screen Shot 2018-02-28 at 2.27.25 AM.png" 
+                    position="3 1.6 -2" 
+                    height="2.8" 
+                    rotation="0 -45 0" 
+                    width="2"
+                ></a-plane>
+                <a-plane 
+                    src="Screen Shot 2018-02-28 at 2.17.20 AM.png" 
+                    position="3.6 1.8 -0.4" 
+                    height="1.4" 
+                    rotation="0 -70 0" 
+                    width="2"
+                ></a-plane>
+                <a-plane 
+                    src="Screen Shot 2018-02-28 at 2.32.00 AM.png" 
+                    position="0.55 0.38 -2.8" 
+                    height="0.8" 
+                    rotation="-10 0 0" 
+                    width="1.7"
+                ></a-plane>
+                <a-plane 
+                    src="Screen Shot 2018-02-28 at 2.12.16 AM.png" 
+                    position="-3 1.6 -2" 
+                    height="3.1" 
+                    rotation="0 45 0" 
+                    width="2.1"
+                ></a-plane>
+                <a-plane 
+                    src="Screen Shot 2018-02-28 at 2.15.15 AM.png" 
+                    position="-2.3 0.18 -2.5" 
+                    height="1" 
+                    rotation="0 45 0" 
+                    width="2.1"
+                ></a-plane>
+                
+                
+                
+            
+                <!--Gloria Voice Over-->
+                <a-plane 
+                    position="0 -2 0"
+                    rotation="-90 0 0"
+                    src="Button-Music-Audio-Player-Outline-Play-Icon-2297762.png"
+                    sound="src: url(videoplayback (6).mp4); on: click"
+                ></a-plane>
+                <!--End of Gloria Voice Over-->
+                
+                <!--Home Button-->
+                <a-plane 
+                    position="0 0 10"
                     rotation="0 180 0"
                     height="2.8"
                     width="4.5"
                     src="Crop-home-button.jpg"
                     opacity="1"
                     onclick="home()"
+                    opacity="0"
                 ></a-plane>
-                <a-box position="0 1 -5" height="0.2" width="0.2" depth="0.2" scale="2 2 2">
+                
+            </a-entity>
+            <!--End of Voice of Dreamers Scene-->
+            
+            
+            <!--The Heroes of DACA Scene-->
+            <a-entity id="heroesScene" visible="false">  
+                <a-sky src="529848-white-house-vr"></a-sky>
+                <a-text 
+                    value="Heroes of DACA" 
+                    color="black" 
+                    rotation="0 0 0" 
+                    position="-2 6 -5" 
+                    scale="4 4 4"
+                ></a-text>
+                
+                
+                <a-plane
+                    position="5 6.3 -1"
+                    rotation="15 -70 0"
+                    height="2.3"
+                    width="6"
+                    src="Screen Shot 2018-02-28 at 2.44.38 AM.png"
+                ></a-plane>
+                
+                
+                <!--The Home Button-->
+                <a-plane
+                    position="0 2.5 1"
+                    rotation="0 180 0"
+                    scale="0.1 0.1 0.5"
+                    height="2.8"
+                    width="4.5"
+                    src="Crop-home-button.jpg"
+                    opacity="1"
+                    onclick="home()"
+                ></a-plane>
+                
+                <!--The Company Cube-->
+                <a-box position="5 3 -1" height="0.2" width="0.2" depth="0.2" scale="2.5 2.5 2.5">
                     <!--Emerson Collective Logo-->
                     <a-plane
-                        position="-0.15 0.2 0.5"
+                        position="-0.15 0 0.5"
                         rotation="0 0 0"
                         scale="0.21 0.21 0.5"
                         height="1.5"
                         width="5.5"
                         src="emerson.png"
                     ></a-plane>
+                    
                     <!--Apple Logo-->
                     <a-plane
                         position="0 0 -0.5"
@@ -432,40 +440,183 @@
                         src="box-logo.png"
                     ></a-plane>
                     
-                    <a-animation attribute="rotation" from="0 0 0" to="0 360 0" easing="linear" dur="13056.83" repeat="indefinite"></a-animation>
-
-                </a-box>
-
-                
-                    <!--Box Logo-->
-                    <a-plane
-                        position="-0.41 3.1 -2"
-                        rotation="0 0 0"
-                        height="0.9"
-                        scale="1.0 0.4 0.8"
-                        width="0.6"
-                        src="box-logo.png"
-                    ></a-plane>
-                
                     <!--Google Logo-->
                     <a-plane
-                        position="-0.2 2.65 -2"
-                        rotation="0 0 0"
+                        position="0.5 0 0"
+                        rotation="0 -270 0"
                         height="676"
                         scale="0.0005 0.0005 0.0005"
                         width="2000"
                         src="google-logo.png"
                     ></a-plane>
+                    
+                    <a-animation 
+                        attribute="rotation"
+                        from="0 0 0"
+                        to="0 360 0"
+                        easing="linear"
+                        dur="13056.83"
+                        repeat="indefinite"
+                    ></a-animation>
+
+                </a-box>
                 
+                <a-box position="5 1 -1" height="0.2" width="0.2" depth="0.2" scale="2.5 2.5 2.5">
                     <!--Amazon Logo-->
                     <a-plane
-                        position="0.15 4.1 -2"
+                        position="-0.15 0 0.5"
                         rotation="0 0 0"
-                        height="260"
-                        scale="0.0017 0.0017 0.0005"
-                        width="668"
+                        scale="0.21 0.21 0.5"
+                        height="1.5"
+                        width="5.5"
                         src="amazon-logo.png"
                     ></a-plane>
+                    
+                    <!--HP Logo-->
+                    <a-plane
+                        position="0 0 -0.5"
+                        rotation="0 180 0"
+                        height="0.9"
+                        scale="0.99 0.8 0.8"
+                        width="0.6"
+                        src="hp.png"
+                    ></a-plane>
+                    
+                    <!--airbnb Logo-->
+                    <a-plane
+                        position="-0.41 0 0"
+                        rotation="0 -90 0"
+                        height="0.9"
+                        scale="1.0 0.4 0.8"
+                        width="0.6"
+                        src="airbnb.png"
+                    ></a-plane>
+                    
+                    <!--Facebook Logo-->
+                    <a-plane
+                        position="0.5 0 0"
+                        rotation="0 -270 0"
+                        height="676"
+                        scale="0.0005 0.0005 0.0005"
+                        width="2000"
+                        src="facebook-logo.png"
+                    ></a-plane>
+                    
+                    <a-animation 
+                        attribute="rotation"
+                        from="0 0 0"
+                        to="0 -360 0"
+                        easing="linear"
+                        dur="13056.83"
+                        repeat="indefinite"
+                    ></a-animation>
+
+                </a-box>
+                
+                <a-box position="4 1.8 3.5" height="0.2" width="0.2" depth="0.2" scale="2.5 2.5 2.5">
+                    <!--Microsoft Logo-->
+                    <a-plane
+                        position="-0.15 0 0.5"
+                        rotation="0 0 0"
+                        scale="0.21 0.21 0.5"
+                        height="1.7"
+                        width="4"
+                        src="microsoft-logo.jpg"
+                    ></a-plane>
+                    
+                    <!--Pandora Logo-->
+                    <a-plane
+                        position="0 0 -0.5"
+                        rotation="0 180 0"
+                        height="0.9"
+                        scale="0.99 0.8 0.8"
+                        width="0.6"
+                        src="pandora-logo.png"
+                    ></a-plane>
+                    
+                    <!--lyft Logo-->
+                    <a-plane
+                        position="-0.41 0 0"
+                        rotation="0 -90 0"
+                        height="0.9"
+                        scale="1.0 0.7 0.8"
+                        width="0.6"
+                        src="lyft-logo.png"
+                    ></a-plane>
+                    
+                    <!--Facebook Logo-->
+                    <a-plane
+                        position="0.5 0 0"
+                        rotation="0 -270 0"
+                        height="676"
+                        scale="0.0005 0.0005 0.0005"
+                        width="2000"
+                        src="starbucks-logo.png"
+                    ></a-plane>
+                    
+                    <a-animation 
+                        attribute="rotation"
+                        from="0 0 0"
+                        to="0 -360 0"
+                        easing="linear"
+                        dur="13056.83"
+                        repeat="indefinite"
+                    ></a-animation>
+
+                </a-box>
+
+                <a-box position="5 -1 -1" height="0.2" width="0.2" depth="0.2" scale="2.5 2.5 2.5">
+                    <!--LinkedIn Logo-->
+                    <a-plane
+                        position="-0.15 0 0.5"
+                        rotation="0 0 0"
+                        scale="0.21 0.21 0.5"
+                        height="1.5"
+                        width="5.5"
+                        src="2000px-LinkedIn_Logo.svg.png"
+                    ></a-plane>
+                    
+                    <!--Pintrest Logo-->
+                    <a-plane
+                        position="0 0 -0.5"
+                        rotation="0 180 0"
+                        height="0.9"
+                        scale="0.99 0.8 0.8"
+                        width="0.6"
+                        src="pintrest-logo.png"
+                    ></a-plane>
+                    
+                    <!--fitbit Logo-->
+                    <a-plane
+                        position="-0.41 0 0"
+                        rotation="0 -90 0"
+                        height="0.9"
+                        scale="1.0 0.4 0.8"
+                        width="0.6"
+                        src="fitbit-logo.png"
+                    ></a-plane>
+                    
+                    <!--Netflix Logo-->
+                    <a-plane
+                        position="0.5 0 0"
+                        rotation="0 -270 0"
+                        height="676"
+                        scale="0.0005 0.0005 0.0005"
+                        width="2000"
+                        src="netflix-logo.png"
+                    ></a-plane>
+                    
+                    <a-animation 
+                        attribute="rotation"
+                        from="0 0 0"
+                        to="0 360 0"
+                        easing="linear"
+                        dur="13056.83"
+                        repeat="indefinite"
+                    ></a-animation>
+
+                </a-box>
+   
                     
                 <!--Janet Murguía -->
                 <a-plane
@@ -528,8 +679,31 @@
                 <a-entity id="ljobsBio" visible="false">
                     <a-text value="There is no more sacred obligation than the protection of our children ��� all our children, all the children living in the United States, whatever their ethnic identity and origin. They are the young Americans who will be the next America. It is our fundamental responsibility to protect them and to ensure that they flourish." color="black" rotation="0 78 0" width="3.4" position="-9.5 -1.0 -0.6" align="center" scale="2.3 2.5 1"></a-text>
                 </a-entity>
-            </a-entity>        
-            <!--End of Activists scene-->
+            </a-entity>   
+            <!--End of Heroes of DACA Scene-->
+            
+            
+            <!--The Border Wall Scene-->
+            <a-entity id="the-border-wall" visible="false">
+                <a-sky src="#border"></a-sky>
+                <a-text 
+                    value="The Wall" 
+                    color="black" 
+                    rotation="0 0 0" 
+                    position="0 4 -5" 
+                    scale="3 3 3"
+                ></a-text>
+                <a-plane
+                    position="0 -1 10"
+                    rotation="0 180 0"
+                    height="2.8"
+                    width="4.5"
+                    src="Crop-home-button.jpg"
+                    opacity="1"
+                    onclick="home()"
+                ></a-plane>
+            </a-entity>
+            <!--End of Border Wall Scene-->
         </a-scene>
     </body>
 </html>
